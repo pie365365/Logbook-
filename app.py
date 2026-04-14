@@ -204,7 +204,7 @@ if uploaded_file:
                         return 'background-color: #e57373'
                 return ''
 
-            styled = df_riepilogo.style.applymap(background_gradient, subset=pd.IndexSlice[['Totale Giorno'], :])
+            styled = df_riepilogo.style.map(background_gradient, subset=pd.IndexSlice['Totale Giorno', :])
             styled.set_table_styles([{ 'selector': 'th.col_heading', 'props': [('font-weight', 'bold')] }])
             st.dataframe(styled, use_container_width=True)
 
